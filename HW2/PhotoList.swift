@@ -26,9 +26,7 @@ struct PhotoList: View {
                     Section(header: Text(self.picture.city[item])){
                         ScrollView(.horizontal,showsIndicators: false){
                             HStack(spacing:20) {
-                                ScrollView(.horizontal){
                                     SightPic(picture: self.picture, i:item)
-                                }
                             }
                         }.frame(height:200).padding(.horizontal, 20)
                     }

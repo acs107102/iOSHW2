@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct StoryView: View {
+    @State private var show = false
+    @State private var distance: CGFloat = -160
     let flag = ["Flag_England", "Flag_France", "Flag_UAE", "Flag_Japan"]
     var body: some View {
         NavigationView {
@@ -37,7 +39,16 @@ struct StoryView: View {
                         //.offset(x: 160, y: -25)
                         //.position(x: 370, y:340)
                 }.offset(x: 160, y: -25)
+                Image(systemName: "airplane")
+                  .resizable()
+                  .frame(width:50, height:50)
+                    .offset(x:distance, y:-290)
+                    .transition(.slide)
             }.navigationBarTitle("旅遊攻略")
+                .animation(Animation.linear(duration: 3).repeatForever(autoreverses: false))
+             .onAppear{
+                    self.distance += 400
+            }
         }
     }
 }
